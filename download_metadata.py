@@ -61,7 +61,8 @@ result_list = [f.replace("Cystic, Mucinous", "Cystic Mucinous") for f in result_
 result_list = [f.replace("Neoplasms, NOS", "Neoplasms NOS") for f in result_list]
 result_list = [f.split(',')[:-1] for f in result_list]
 headers = result_list.pop(0)
+cols = ['age', 'race', 'disease_type', 'primary_site', 'project_id','sample_type','submitter_id','methylation_file_id']
 
-result_df = pd.DataFrame(result_list, columns = headers)
+result_df = pd.DataFrame(result_list, columns = cols)
 result_df.to_csv('data/ucec_metadata.csv')
 
